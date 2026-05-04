@@ -2,7 +2,6 @@ import unicodedata
 import re
 import sys
 
-
 def higienizar(texto: str) -> str:
     texto = texto.lower()
     texto = unicodedata.normalize("NFD", texto)
@@ -21,7 +20,6 @@ def cifrar_vigenere(texto: str, chave: str) -> str:
 
 
 def main():
-
     with open(sys.argv[1], "r") as f:
         texto_original = f.read()
 

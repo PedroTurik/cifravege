@@ -77,6 +77,10 @@ texto_cifrado.txt
 ## Como Executar
 
 ```bash
+python cifra.py <texto para cifrar> <senha>
+```
+
+```bash
 # 1. Descobrir tamanho da chave
 python ic.py texto_criptografado.txt
 
@@ -84,5 +88,5 @@ python ic.py texto_criptografado.txt
 python analise_freq.py texto_criptografado.txt <tamanho da chave>
 
 # 3. Decifrar
-python 03_decifrar.py texto_criptografado.txt <chave encontrada>
+python decifrar.py texto_criptografado.txt <chave encontrada>
 ```

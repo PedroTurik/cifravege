@@ -1,20 +1,6 @@
-"""
-Etapa 1 — Descoberta do tamanho da chave via Índice de Coincidência (IC)
-
-O IC mede a probabilidade de duas letras escolhidas ao acaso em um texto
-serem iguais. Para português, o IC esperado é ~0.072. Para texto aleatório
-(distribuição uniforme), é ~0.038.
-
-Estratégia: dividimos o texto cifrado em 'k' subtextos (um por posição da
-chave). Se 'k' for o tamanho correto, cada subtexto foi cifrado com um
-deslocamento fixo (César), e seu IC será próximo de 0.072.
-"""
-
 import sys
 
-
 def calcular_ic(texto: str) -> float:
-    """Calcula o Índice de Coincidência de um texto."""
     n = len(texto)
     if n <= 1:
         return 0.0
@@ -26,10 +12,6 @@ def calcular_ic(texto: str) -> float:
 
 
 def ic_medio_para_tamanho(texto: str, tamanho_chave: int) -> float:
-    """
-    Divide o texto em 'tamanho_chave' subtextos e retorna o IC médio.
-    Subtexto i = caracteres nas posições i, i+k, i+2k, ...
-    """
     subtextos = [""] * tamanho_chave
     for i, c in enumerate(texto):
         subtextos[i % tamanho_chave] += c
@@ -39,10 +21,6 @@ def ic_medio_para_tamanho(texto: str, tamanho_chave: int) -> float:
 
 
 def main():
-    if len(sys.argv) < 2:
-        print("Uso: python 01_indice_coincidencia.py <texto_cifrado.txt>")
-        sys.exit(1)
-
     with open(sys.argv[1], "r", encoding="utf-8") as f:
         texto = f.read().strip()
 
